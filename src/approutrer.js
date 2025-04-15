@@ -9,7 +9,7 @@ const AppRouter = () =>
 {
     return(<>
     <div>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
         <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/table" element={<Table />} />
