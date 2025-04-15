@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Qrdin_adminpanel/static/css/main.16eff44a.css",
-    "main.js": "/Qrdin_adminpanel/static/js/main.7b707118.js",
+    "main.js": "/Qrdin_adminpanel/static/js/main.cb4c7042.js",
     "static/js/453.969230c5.chunk.js": "/Qrdin_adminpanel/static/js/453.969230c5.chunk.js",
     "static/media/foodimg.jpg": "/Qrdin_adminpanel/static/media/foodimg.1f8c1cf1f6f0e7d2e945.jpg",
     "static/media/cook.png": "/Qrdin_adminpanel/static/media/cook.141d1527582d6bd1537a.png",
     "static/media/logo.svg": "/Qrdin_adminpanel/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/Qrdin_adminpanel/index.html",
     "main.16eff44a.css.map": "/Qrdin_adminpanel/static/css/main.16eff44a.css.map",
-    "main.7b707118.js.map": "/Qrdin_adminpanel/static/js/main.7b707118.js.map",
+    "main.cb4c7042.js.map": "/Qrdin_adminpanel/static/js/main.cb4c7042.js.map",
     "453.969230c5.chunk.js.map": "/Qrdin_adminpanel/static/js/453.969230c5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16eff44a.css",
-    "static/js/main.7b707118.js"
+    "static/js/main.cb4c7042.js"
   ]
 }
