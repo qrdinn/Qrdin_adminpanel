@@ -7,10 +7,9 @@ import QrCode from "./qrcode/qrcode";
 
 const AppRouter = () =>
 {
-    const basename = window.location.hostname === 'localhost' ? '' : '/Qrdin_adminpanel';
     return(<>
     <div>
-        <Router basename={basename}>
+        <Router basename={process.env.PUBLIC_URL}>
         <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/table" element={<Table />} />
