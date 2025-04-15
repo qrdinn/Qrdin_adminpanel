@@ -1,0 +1,278 @@
+/* src/components/ProfileHeader.css */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #410445;
+  color: white;
+  padding: 10px 20px;
+  height: 70px;
+  /* position: sticky; */
+   /* Ensure hamburger is aligned correctly */
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.header-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.header-nav ul li {
+  margin-left: 20px;
+}
+
+.header-nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hamburger Icon for Mobile */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+/* src/components/Sidebar.css */
+
+.sidebar {
+  width: 225px;
+  background-color: #410445;
+  color: white;
+  padding: 10px;
+  height: 100vh;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #56065c;
+}
+
+/* src/App.css - Basic styles for the app */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content {
+  margin-left: 225px; /* Offset the main content to the right of the sidebar */
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.open {
+  margin-left: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.widthset
+{
+  width:40% !important;
+}
+
+input::placeholder {
+  font-size: 14px; /* Set the font size to your preference */
+  font-weight: 400; /* Set the font weight to your preference (normal is 400, bold is 700) */
+  color: #999; /* You can also change the color if needed */
+}
+
+/* Mobile Responsiveness (max-width: 768px) */
+@media (max-width: 768px) {
+  /* .header-nav {
+    display: none;
+  } */
+
+  .widthset
+{
+  width:90% !important;
+}
+
+  .hamburger {
+    display: block; /* Show the hamburger menu for mobile */
+    font-size: 30px;
+    color: white;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 250px;
+    top: 70px;
+    left: 0;
+    height: 100%;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0; /* No offset for mobile */
+    padding: 15px; /* Slightly reduced padding for mobile */
+  }
+
+  .sidebar-wrapper {
+    display: none;
+  }
+
+  .sidebar-wrapper.open {
+    display: block;
+  }
+}
+
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-nav .dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #56065c;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-nav .dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav .dropdown-menu ul li {
+  margin: 10px 0;
+}
+
+.header-nav .dropdown-menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.header-nav .dropdown-menu ul li a:hover {
+  background-color: #410445;
+}
+
+table {
+  width: 100% !important;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid  #5e0364  !important;
+  font-weight: 600;
+}
+
+th {
+  background-color: #d11a79;
+  color: white;
+  text-align: center !important;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #56065c;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 0.8s linear infinite; /* Safari */
+  animation: spin 0.8s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.buttonloader {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #56065c;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 0.8s linear infinite; /* Safari */
+  animation: spin 0.8s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
