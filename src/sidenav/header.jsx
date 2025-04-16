@@ -26,7 +26,7 @@ const ProfileHeader = ({ toggleSidebar }) => {
   }
 
   return (
-    <div style={{position:"sticky", top:"0px",zIndex:"11"}}>
+    <div style={{position:"fixed", top:"0px",zIndex:"11", width:"100%"}}>
     <header className="profile-header">
       <div className="hamburger" onClick={toggleSidebar}>
         <IoIosMenu style={{ fontSize: '30px', color: 'white' }} />
