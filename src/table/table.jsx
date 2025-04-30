@@ -1,7 +1,7 @@
 
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ProfileHeader from '../sidenav/header';
 import Sidebar from '../sidenav/sidenavbar';
 import food from '../images/foodimg.jpg'
@@ -35,12 +35,7 @@ const Table = () => {
   setloading(true)
   }
 
-  useEffect(()=>
-  {
-    gettable();
-  },[])
-
-
+  
  
 
   useEffect(()=>
@@ -82,6 +77,80 @@ const Table = () => {
       dispatch(order_complete(payload))
     }
 
+    const [istoggleButton, setIsToggleButton] = useState(false);
+
+ 
+//   const handleOnClick = async (status) => {
+//     setIsToggleButton(true)
+//  if(status === true)
+//  {
+ 
+//     try {
+//       const response = await fetch('https://karthi9150.pythonanywhere.com/getstatus');
+//       const data = await response.json();
+//     if(data.status === true)
+//     {
+//       gettable()
+//     }
+    
+//     } catch (error) {
+//       console.error('Error fetching status:', error);
+//     } 
+//   }
+//   else{
+//     setIsToggleButton(false)
+//   }
+
+// }
+
+const intervalRef = useRef(null);
+
+const handleOnClick = async (status) => {
+  
+
+  if (status === true) {
+    setIsToggleButton(true);
+    // Clear any existing interval to avoid duplicates
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    // Call immediately once
+    checkStatus();
+
+    // Then call every minute
+    intervalRef.current = setInterval(() => {
+      checkStatus();
+    }, 60000); // 60000ms = 1 minute
+  }
+  else{
+    setIsToggleButton(false);
+    gettable();
+  }
+};
+
+const checkStatus = async () => {
+  try {
+    const response = await fetch('https://karthi9150.pythonanywhere.com/getstatus');
+    const data = await response.json();
+    if (data.status === true) {
+      gettable();
+    }
+  } catch (error) {
+    console.error('Error fetching status:', error);
+  }
+};
+
+// Optional cleanup
+useEffect(() => {
+  return () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+}, []);
+
+useEffect(()=>
+{
+  handleOnClick()
+},[])
+ 
   return (
 <>
    
@@ -91,8 +160,43 @@ const Table = () => {
       <div className="content">
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         <div className={`main-content ${isSidebarOpen ? 'closed' : 'open'}`}>
-        <div>
+        <div className='d-flex align-items-between justify-content-between'>
+          <div>
               <h4>Food Order Items</h4>
+              </div>
+              {/* <div>
+      <button style={{ backgroundColor: istoggleButton ? 'green' : 'gray',border:"none", fontWeight:"bold", color: "white" }}>
+        ON
+      </button>
+      <button style={{ backgroundColor: !istoggleButton ? 'red' : 'gray',border:"none" , fontWeight:"bold" , color: "white" }}>
+        OFF
+      </button>
+    </div> */}
+
+<div>
+      <button
+        onClick={()=>handleOnClick(true)}
+        style={{
+          backgroundColor: istoggleButton ? 'green' : 'gray',
+          border: "none",
+          fontWeight: "bold",
+          color: "white"
+        }}
+      >
+        ON
+      </button>
+      <button
+        onClick={()=>handleOnClick(false)}
+        style={{
+          backgroundColor: !istoggleButton ? 'red' : 'gray',
+          border: "none",
+          fontWeight: "bold",
+          color: "white"
+        }}
+      >
+        OFF
+      </button>
+    </div>
             </div>
             {loading && (
       <div className='d-flex align-items-center justify-content-center' style={{height:"100%",}}>
