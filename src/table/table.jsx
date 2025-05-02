@@ -119,7 +119,7 @@ const handleOnClick = async (status) => {
     // Then call every minute
     intervalRef.current = setInterval(() => {
       checkStatus();
-    }, 60000); // 60000ms = 1 minute
+    }, 30000); // 60000ms = 1 minute
   }
   else{
     setIsToggleButton(false);
